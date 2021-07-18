@@ -57,7 +57,13 @@ class MainActivity : AppCompatActivity() {
                 swipeRefreshLayout.isRefreshing = false
                 recyclerViewAdapter.clear()
                 recyclerViewAdapter.addAll(it.hits)
-            }
+            }else
+                Toast.makeText(
+                    this,
+                    "Error while fetching images from server",
+                    Toast.LENGTH_SHORT
+                ).show()
+
         })
 
         swipeRefreshLayout.setOnRefreshListener { activityViewModelBind.callApi() }
